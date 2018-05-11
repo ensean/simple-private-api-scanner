@@ -19,7 +19,7 @@ def get_executable_file_list(path):
     获取Payload中所有Match-O文件路径
     Match-O文件无扩展名……
     """
-    cmd = u"python -mmacholib find %s" % (path)
+    cmd = u"python -mmacholib find %s | grep -v svn-base" % (path)
     out = subprocess.check_output(cmd, shell=True)
     path_list = []
     if out:
